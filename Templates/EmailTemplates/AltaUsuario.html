@@ -1,0 +1,639 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Documento sin título</title>
+    <style>
+        .fondo {
+            background-color: #e02250;
+            text-align: center;
+            position: relative;
+            alignment-adjust: central;
+        }
+
+        .encabezado {
+            position: relative;
+            background-color: #FFF;
+            width: 850px;
+            height: 520px;
+            padding-top: 2%;
+            padding-left: 2%;
+            margin-top: 15%;
+            margin-left: 15%;
+            margin-right: 15%;
+        }
+
+        .imagen1 {
+            position: relative;
+            background: url("http://semsysrvoe.sev.gob.mx/RVOE/Img/logo-mail.jpg") no-repeat;
+            /*background-size: 70% 70%;*/
+            width: 216px;
+            height: 102px;
+            margin-top: 2%;
+            /*margin-left: 5%;*/
+        }
+
+        .imagen2 {
+            position: relative;
+            background: url("http://semsysrvoe.sev.gob.mx/RVOE/Img/logo-gobver.jpg") no-repeat;
+            /*background-size: 75% 75%;*/
+            width: 191px;
+            height: 82px;
+            margin-top: 2%;
+            /*margin-left: 180%;*/
+        }
+
+        .imagen3 {
+            position: relative;
+            background: url("http://semsysrvoe.sev.gob.mx/RVOE/Img/logo-sev.jpg") no-repeat;
+            /*background-size: 60% 60%;*/
+            width: 174px;
+            height: 83px;
+            margin-top: 2%;
+            /*margin-left: 83%;*/
+        }
+
+        .imagen4 {
+            position: relative;
+            background: url("http://semsysrvoe.sev.gob.mx/RVOE/Img/logo_ver.jpg") no-repeat;
+            /*background-size: 60% 60%;*/
+            width: 139px;
+            height: 83px;
+            margin-top: 2%;
+            /*margin-left: 75%;*/
+        }
+
+        .textoEncab {
+            position: relative;
+            background-color: #FFF;
+            text-align: right;
+            margin-right: 5%;
+            color: #900048;
+        }
+
+        .textoCuerpo {
+            position: relative;
+            background-color: #FFF;
+            margin-left: 5%;
+            margin-right: 10%;
+            color: #900048;
+        }
+
+        .rectangulo {
+            position: relative;
+            background: #900048;
+            border-radius: 20px 20px 0px 0px;
+            -moz-border-radius: 20px 20px 0px 0px;
+            -webkit-border-radius: 20px 20px 0px 0px;
+            color: #fedfa7;
+            height: 40px;
+            width: 350px;
+            margin-left: 45%;
+        }
+
+        .textoDatos {
+            position: relative;
+            background-color: #fedfa7;
+            text-align: center;
+            margin-right: 2%;
+            color: #900048;
+            border-color: #900048;
+            border-bottom: solid;
+        }
+
+        @font-face {
+            font-family: "Geogtq-Md";
+            src: url("http://semsysrvoe.sev.gob.mx/Fonts/Geogtq-Md.otf");
+        }
+
+        p1 {
+            font-family: "Geogtq-Md";
+            font-size: 100%;
+        }
+
+        @font-face {
+            font-family: "Geogtq-Sb";
+            src: url("http://semsysrvoe.sev.gob.mx/Fonts/Geogtq-Sb.otf");
+        }
+
+        p2 {
+            font-family: "Geogtq-Sb";
+            font-size: 100%;
+        }
+
+        @font-face {
+            font-family: "Geogtq-Rg";
+            src: url("http://semsysrvoe.sev.gob.mx/Fonts/Geogtq-Rg.otf");
+        }
+
+        p3 {
+            font-family: "Geogtq-Rg";
+            font-size: 100%;
+        }
+
+        body {
+            font-size: 110%;
+        }
+        /*---------------------------------------diseños responsivos ------------------------------------*/
+        /* galaxy S5 vertical*/
+        @media screen and (device-width: 360px) and (device-height: 640px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait) {
+            body {
+                font-size: 65%;
+            }
+
+            .encabezado {
+                width: 330px;
+                margin-left: 1.5%;
+                height: 350px;
+                margin-top: 45%;
+            }
+
+            .rectangulo {
+                height: 25px;
+                width: 220px;
+                margin-left: 30%;
+            }
+
+            .imagen1 {
+                background-size: 90% 90%;
+                width: 100px;
+                height: 43px;
+            }
+
+            .imagen2 {
+                background-size: 45% 45%;
+                width: 110px;
+                height: 70px;
+                margin-left: 120%;
+            }
+
+            .imagen3 {
+                background-size: 60% 60%;
+                width: 108px;
+                height: 40px;
+                margin-top: 2%;
+                margin-left: 53%;
+            }
+
+            .imagen4 {
+                background-size: 50% 50%;
+                width: 99px;
+                height: 50px;
+                margin-left: 65%;
+            }
+
+            @font-face {
+                font-family: "Geogtq-Rg";
+                src: url("http://semsysrvoe.sev.gob.mx/Fonts/Geogtq-Rg.otf");
+            }
+
+            p3 {
+                font-family: "Geogtq-Rg";
+                font-size: 95%;
+            }
+        }
+        /* galaxy S5 horizontal*/
+        @media screen and (device-width: 640px) and (device-height: 360px) and (-webkit-device-pixel-ratio: 3) and (orientation: landscape) {
+            .encabezado {
+                height: 325px;
+                margin-left: 1%;
+            }
+
+            @font-face {
+                font-family: "Geogtq-Rg";
+                src: url("http://semsysrvoe.sev.gob.mx/Fonts/Geogtq-Rg.otf");
+            }
+
+            p3 {
+                font-family: "Geogtq-Rg";
+                font-size: 80%;
+            }
+        }
+
+        /* galaxy S9 vertical*/
+        @media screen and (device-width: 360px) and (device-height: 740px) and (orientation: portrait) {
+            body {
+                font-size: 67%;
+            }
+
+            .encabezado {
+                width: 330px;
+                margin-left: 1.5%;
+                height: 350px;
+                margin-top: 45%;
+            }
+
+            .rectangulo {
+                height: 25px;
+                width: 220px;
+                margin-left: 30%;
+            }
+
+            .imagen1 {
+                background-size: 90% 90%;
+                width: 100px;
+                height: 43px;
+            }
+
+            .imagen2 {
+                background-size: 45% 45%;
+                width: 110px;
+                height: 70px;
+                margin-left: 120%;
+            }
+
+            .imagen3 {
+                background-size: 60% 60%;
+                width: 108px;
+                height: 40px;
+                margin-top: 2%;
+                margin-left: 53%;
+            }
+
+            .imagen4 {
+                background-size: 50% 50%;
+                width: 99px;
+                height: 50px;
+                margin-left: 65%;
+            }
+
+            @font-face {
+                font-family: "Geogtq-Rg";
+                src: url("http://semsysrvoe.sev.gob.mx/Fonts/Geogtq-Rg.otf");
+            }
+
+            p3 {
+                font-family: "Geogtq-Rg";
+                font-size: 95%;
+            }
+        }
+
+        /* galaxy S9 horizontal*/
+        @media screen and (device-width: 740px) and (device-height: 360px) and (orientation: landscape) {
+            body {
+                font-size: 80%;
+            }
+
+            .encabezado {
+                height: 325px;
+                width: 700px;
+                margin-left: 1%;
+                margin-top: 1%;
+            }
+
+            @font-face {
+                font-family: "Geogtq-Rg";
+                src: url("http://semsysrvoe.sev.gob.mx/Fonts/Geogtq-Rg.otf");
+            }
+
+            p3 {
+                font-family: "Geogtq-Rg";
+                font-size: 65%;
+            }
+
+            .rectangulo {
+                height: 25px;
+                width: 300px;
+                margin-left: 50%;
+            }
+
+            .imagen1 {
+                width: 180px;
+                height: 65px;
+            }
+
+            .imagen2 {
+                background-size: 50% 50%;
+            }
+
+            .imagen3 {
+                background-size: 50% 50%;
+                margin-left: 65%;
+            }
+
+            .imagen4 {
+                background-size: 50% 50%;
+                margin-left: 65%;
+            }
+        }
+
+        /* ipad vertical*/
+        @media only screen and (min-device-width : 768px) and (max-device-width : 1024px) and (orientation : portrait) {
+            body {
+                font-size: 100%;
+            }
+
+            .encabezado {
+                width: 700px;
+                height: 550px;
+                margin-top: 20%;
+                margin-left: 3%;
+            }
+
+            .imagen2 {
+                background-size: 60% 60%;
+                width: 191px;
+                height: 82px;
+                margin-left: 155%;
+            }
+
+            .imagen3 {
+                margin-left: 65%;
+            }
+
+            .imagen4 {
+                margin-left: 65%;
+            }
+        }
+        /*ipad horizontal */
+        @media only screen and (min-device-width : 768px) and (max-device-width : 1024px) and (orientation : landscape) {
+            .encabezado {
+                margin-top: 11%;
+                margin-left: 7%;
+            }
+        }
+
+        /* iPhone 6/7/8  en vertical */
+        @media only screen and (min-device-width : 375px) and (max-device-height : 667px) and (orientation : portrait) {
+            body {
+                font-size: 60%;
+            }
+
+            .encabezado {
+                width: 300px;
+                margin-left: 8%;
+                height: 350px;
+                margin-top: 45%;
+            }
+
+            .rectangulo {
+                height: 25px;
+                width: 200px;
+                margin-left: 30%;
+            }
+
+            .imagen1 {
+                background-size: 90% 90%;
+                width: 100px;
+                height: 50px;
+            }
+
+            .imagen2 {
+                background-size: 45% 45%;
+                width: 110px;
+                height: 70px;
+                margin-left: 100%;
+            }
+
+            .imagen3 {
+                background-size: 60% 60%;
+                width: 108px;
+                height: 40px;
+                margin-top: 2%;
+                margin-left: 53%;
+            }
+
+            .imagen4 {
+                background-size: 50% 50%;
+                width: 99px;
+                height: 50px;
+                margin-left: 65%;
+            }
+        }
+
+        /* iPhone 6/7/8 en horizontal */
+        @media only screen and (min-device-width : 375px) and (max-device-width : 667px) and (orientation : landscape) {
+            body {
+                font-size: 70%;
+            }
+
+            .encabezado {
+                width: 600px;
+                height: 340px;
+                margin-top: 2%;
+                margin-left: 4%;
+            }
+
+            .rectangulo {
+                height: 30px;
+                width: 280px;
+                margin-left: 50%;
+            }
+
+            .imagen1 {
+                background-size: 60% 60%;
+                width: 150px;
+                height: 65px;
+            }
+
+            .imagen2 {
+                background-size: 50% 50%;
+                margin-left: 170%;
+            }
+
+            .imagen3 {
+                background-size: 50% 50%;
+                margin-left: 55%;
+            }
+
+            .imagen4 {
+                background-size: 50% 50%;
+                margin-left: 55%;
+            }
+        }
+
+        /*iPhone X vertical*/
+        @media screen and (device-width : 375px) and (device-height: 812px) and (-webkit-device-pixel-ratio : 3) and (orientation : portrait) {
+            body {
+                font-size: 60%;
+            }
+
+            .encabezado {
+                width: 350px;
+                margin-left: 0.5%;
+                height: 350px;
+                margin-top: 45%;
+            }
+
+            .rectangulo {
+                height: 25px;
+                width: 210px;
+                margin-left: 35%;
+            }
+
+            .imagen1 {
+                background-size: 90% 90%;
+                width: 100px;
+                height: 50px;
+            }
+
+            .imagen2 {
+                background-size: 45% 45%;
+                width: 110px;
+                height: 70px;
+                margin-left: 140%;
+            }
+
+            .imagen3 {
+                background-size: 60% 60%;
+                width: 108px;
+                height: 40px;
+                margin-top: 2%;
+                margin-left: 53%;
+            }
+
+            .imagen4 {
+                background-size: 50% 50%;
+                width: 99px;
+                height: 50px;
+                margin-left: 65%;
+            }
+        }
+        /* iPhone X in landscape */
+        @media screen and (device-width : 812px) and (device-height : 375px) and (-webkit-device-pixel-ratio : 3) and (orientation : landscape) {
+            body {
+                font-size: 75%;
+            }
+
+            .encabezado {
+                width: 700px;
+                height: 335px;
+                margin-left: 5%;
+                margin-top: 1%;
+            }
+
+            .imagen1 {
+                background-size: 65% 65%;
+                width: 150px;
+                height: 70px;
+            }
+
+            .imagen2 {
+                background-size: 50% 50%;
+                margin-left: 200%;
+            }
+
+            .imagen3 {
+                background-size: 50% 50%;
+                margin-left: 70%;
+            }
+
+            .imagen4 {
+                background-size: 50% 50%;
+                margin-left: 70%;
+            }
+
+            .rectangulo {
+                height: 25px;
+                width: 300px;
+                margin-left: 52%;
+            }
+
+            @font-face {
+                font-family: "Geogtq-Sb";
+                src: url(imagenes/Geogtq-Sb.otf);
+            }
+
+            p2 {
+                font-family: "Geogtq-Sb";
+                font-size: 90%;
+            }
+
+            @font-face {
+                font-family: "Geogtq-Rg";
+                src: url(imagenes/Geogtq-Rg.otf);
+            }
+
+            p3 {
+                font-family: "Geogtq-Rg";
+                font-size: 80%;
+            }
+        }
+
+        /* Kindle vertical */
+        @media screen and (device-width: 800px) and (device-height:1280px) and (orientation : portrait) {
+            .encabezado {
+                width: 730px;
+                height: 550px;
+                margin-top: 45%;
+                margin-left: 3%;
+            }
+
+            .imagen2 {
+                background-size: 60% 60%;
+                width: 191px;
+                height: 82px;
+                margin-left: 155%;
+            }
+
+            .imagen3 {
+                margin-left: 65%;
+            }
+
+            .imagen4 {
+                margin-left: 65%;
+            }
+        }
+
+        /*Kindle horizontal*/
+        @media screen and (device-width: 1280px) and (device-height: 800px) and (orientation : landscape) {
+            .encabezado {
+                margin-top: 10%;
+            }
+        }
+    </style>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+</head>
+
+<body class="fondo">
+
+    <div class="encabezado" id="main">
+        <table>
+            <tr>
+                <td><div class="imagen1"></div></td>
+                <td><div class="imagen2"></div></td>
+                <td><div class="imagen3"></div></td>
+                <td><div class="imagen4"></div></td>
+            </tr>
+        </table>
+        <div class="textoEncab">
+            <p1>Subsecretaría de Educación Media Superior y Superior</p1>
+        </div>
+        <div class="textoCuerpo" align="left">
+            <p1> Apreciable</p1> <p2> {0}</p2>
+        </div>
+        <br />
+        <div class="textoCuerpo" align="justify">
+            <p3>La Subsecretaría de Educación Media Superior y Superior tiene el honor de brindarle el acceso a la plataforma RVOE, con las siguientes credenciales de acceso:</p3>
+        </div>
+        <br />
+        <div class="textoCuerpo" align="left">
+            <p2>USUARIO:</p2>
+            <p3>{1}</p3>
+        </div>
+        <div class="textoCuerpo" align="left">
+            <p2>CONTRASEÑA:</p2>
+            <p3>{2}</p3>
+        </div>
+        <div class="rectangulo">
+            <p2>
+                <a target='_blank' href='{3}' style='color:#ffffff;'>Ingresar al Sistema </a>
+                <p2>
+        </div>
+        <div class="textoDatos">
+            <h5>
+                <br /> <p3>
+                    Los datos personales proporcionados a la autoridad educativa, que fueron recabados, se encuentran protegidos, incorporados y tratados en el Sistema de datos de la Secretaría de Educación de Veracruz, con fundamento en la Ley Número 316 de Protección de Datos Personales en Posesión de Sujetos Obligados para el Estado de Veracruz de Ignacio de la Llave.
+                </p3>
+            </h5>
+        </div>
+        <div class="textoCuerpo" align="center">
+            <p3>
+                <img src="http://semsysrvoe.sev.gob.mx/RVOE/Img/logo-ubica.jpg" width="18" height="25" />&nbsp;CARRETERA FEDERAL XALAPA-VERACRUZ KM. 4.5 COL. SAHOP C.P. 91190 <br />
+                XALAPA VERACRUZ MÉXICO
+            </p3>
+        </div>
+    </div>
+</body>
+</html>
