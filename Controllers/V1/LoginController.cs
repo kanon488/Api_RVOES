@@ -52,10 +52,11 @@ namespace API_RVOES.Controllers.V1
 
                 var claims = new List<Claim>
                 {
-                    new Claim(ClaimTypes.Name,usuario.IdUsuario.ToString()),
+                    new Claim(ClaimTypes.Name,usuario.ClaveUsuario.ToString()),
                     new Claim(ClaimTypes.Email, usuario.CorreoInstitucional),
                     new Claim(ClaimTypes.Role,usuario.IdPerfil.ToString()),
                     new Claim("idusuario",usuario.IdUsuario.ToString()),
+                    new Claim("cuenta",usuario.ClaveUsuario.ToString()),
                     new Claim("nombrePerfil",usuario.NombrePerfil),
                     new Claim("nombre",usuario.Nombre+" "+usuario.ApellidoPaterno+" "+usuario.ApellidoMaterno)
                 };
