@@ -12,6 +12,7 @@ namespace API_RVOES.AppCode.Services
     public interface IArchivoService
     {
         string AlmacenarArchivo(IFormFile file, string sRutaDestino, string sNombreArchivo, string ExtensionArchivo);
+        bool EliminarArchivo(string sRutaCompleta);
         MemoryStream RecuperarArchivo(string sRutaDestino);
         bool bExisteArchivo(string sRutaCompletaDelArchivo);
         bool bExisteDirectorio(string sRutaDelDirectorio);
@@ -51,6 +52,8 @@ namespace API_RVOES.AppCode.Services
                 {
                     bCrearDirectorio(sFolderPath);
                 }
+                string sfechaSubida = DateTime.Now.Day.ToString() + DateTime.Now.Hour.ToString() + DateTime.Now.Minute.ToString() + DateTime.Now.Second.ToString() + DateTime.Now.Millisecond.ToString();
+                sNombreArchivo = sNombreArchivo + sfechaSubida;
                 var sDestinationFile = Path.Combine(sFolderPath, sNombreArchivo + ExtensionArchivo);
                 using (FileStream fs = System.IO.File.Create(sDestinationFile))
                 {
@@ -63,6 +66,34 @@ namespace API_RVOES.AppCode.Services
             catch (Exception ex)
             {
 
+                throw;
+            }
+        }
+
+        public bool EliminarArchivo(string sRutaCompleta) 
+        {
+            try
+            {
+                bool bEliminado = false;
+                string sUrlBase = _configuration["FileServer:UrlBase"]; ;
+                string sFileServerUser = _configuration["FileServer:User"];
+                string sFileServerUserPwd = _configuration["FileServer:Pwd"];
+                string sFileServerDomain = _configuration["FileServer:Domain"];
+
+                //Gestor de autenticación
+                NtlmPasswordAuthentication AuthUser = new NtlmPasswordAuthentication(sFileServerDomain, sFileServerUser, sFileServerUserPwd);
+                //Carpeta destino contenedora
+                SmbFile RemoteFolder = new SmbFile(sRutaCompleta, AuthUser);
+
+                if (System.IO.File.Exists(sRutaCompleta)) 
+                {
+                    File.Delete(sRutaCompleta);
+                    bEliminado = true;
+                }
+                return bEliminado;
+            }
+            catch (Exception ex)
+            {
                 throw;
             }
         }

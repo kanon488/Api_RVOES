@@ -7,12 +7,16 @@ namespace API_RVOES.Models.StoredProcedures.AreasOpinion
 {
     public class OpinionViewModel
     {
+        public int IdSolicitud { get; set; }
+        public int NumSolicitud { get; set; }
+        public int IdAreaOpinion { get; set; }
+        public string AbrevAreaOpinion { get; set; }        
+        public int IdEdoAsignado { get; set; }
+        public string DescEdoAsignado { get; set; }
         public int IdOpinion { get; set; }
-        public int IdSolicitudArea { get; set; }
         public int IdEdoOpinion { get; set; }
-        public string  EdoOpDescripcion { get; set; }
-        public string RutaOficioNotificacion { get; set; }
-        public string RutaOficioSemsys { get; set; }
-        public string FechaRegistro { get; set; }
+        public string DescEdoOpinion { get; set; }
+        public string FechaAsginacion { get; set; }
+        public string FechaLimOpinion { get; set; }
     }
 }

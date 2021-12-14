@@ -1137,13 +1137,17 @@ namespace API_RVOES.Data
         {
             return new OpinionViewModel()
             {
+                IdSolicitud = Int32.Parse(reader["IdSolicitud"].ToString()),
+                NumSolicitud = Int32.Parse(reader["NumSolicitud"].ToString()),
+                IdAreaOpinion = Int32.Parse(reader["IdAreaOpinion"].ToString()),
+                AbrevAreaOpinion = reader["AbrevAreaOp"].ToString(),
+                IdEdoAsignado = Int32.Parse(reader["IdEstatusAsignado"].ToString()),
+                DescEdoAsignado = reader["DescEstatusAsig"].ToString(),
                 IdOpinion = Int32.Parse(reader["IdOpinion"].ToString()),
-                IdSolicitudArea = Int32.Parse(reader["IdSolArea"].ToString()),
                 IdEdoOpinion = Int32.Parse(reader["IdEdoOpinion"].ToString()),
-                EdoOpDescripcion = reader["EdoOpDescr"].ToString(),
-                RutaOficioNotificacion = reader["RutaOficioNot"].ToString(),
-                RutaOficioSemsys = reader["RutaOficioSemsys"].ToString(),
-                FechaRegistro = reader["FechaReg"].ToString()
+                DescEdoOpinion = reader["EstatusOpinion"].ToString(),
+                FechaAsginacion = reader["FechaAsignacion"].ToString(),
+                FechaLimOpinion = reader["FechaLimOpinion"].ToString()
             };
         }
         private SolicitudAsignadaViewModel _MapSolicitudesAsignadas(SqlDataReader reader)

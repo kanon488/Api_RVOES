@@ -27,12 +27,35 @@ namespace API_RVOES.Controllers.V1
         /// </summary>
         /// <returns></returns>
         //GET: api/Opiniones/Listar
-        [HttpGet("[action]/{idSolAsignada}")]
-        public async Task<ActionResult<List<OpinionViewModel>>> Listar(int idSolAsignada)
+        //[HttpGet("[action]/{idSolAsignada}")]
+        //public async Task<ActionResult<List<OpinionViewModel>>> Listar(int idSolAsignada)
+        //{
+        //    try
+        //    {
+        //        var opiniones = await _rvoerepository.GetOpinionesBySolAsignada(idSolAsignada);
+        //        if (opiniones == null)
+        //        {
+        //            return NotFound();
+        //        }
+        //        return Ok(opiniones);
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        return StatusCode(500, ex.Message);
+        //    }
+        //}
+
+        /// <summary>
+        /// Lista todas las opiniones que tienen registradas una solicitud.
+        /// </summary>
+        /// <returns></returns>
+        //GET: api/Opiniones/Listar
+        [HttpGet("[action]/{idSolicitud}")]
+        public async Task<ActionResult<List<OpinionViewModel>>> Listar(int idSolicitud)
         {
             try
             {
-                var opiniones = await _rvoerepository.GetOpinionesBySolAsignada(idSolAsignada);
+                var opiniones = await _rvoerepository.GetOpinionesByIdSolicitud(idSolicitud);
                 if (opiniones == null)
                 {
                     return NotFound();
