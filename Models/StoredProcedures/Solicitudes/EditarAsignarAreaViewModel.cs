@@ -16,6 +16,7 @@ namespace API_RVOES.Models.StoredProcedures.Solicitudes
         public string numsolicitud { get; set; }
         [Required(ErrorMessage = "El campo Id Area es requerido")]
         public int idarea { get; set; }
+        [Required(ErrorMessage ="El campo rutaOficio es requerido")]
         public string rutaOficioAsignacion { get; set; }
         [Required(ErrorMessage = "El campo Id Estatus asignado es requerido")]
         public int idestatusasignado { get; set; }

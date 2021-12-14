@@ -889,6 +889,37 @@ namespace API_RVOES.Data
                 throw;
             }
         }
+
+        public async Task<List<OpinionViewModel>> GetOpinionesByIdSolicitud(int idSolicitud) 
+        {
+            try
+            {
+                using (SqlConnection conn = new SqlConnection(_connectionString))
+                {
+                    using (SqlCommand cmd = new SqlCommand("RVOE2021_GetOpinionesByIdSolicitud", conn))
+                    {
+                        cmd.CommandType = System.Data.CommandType.StoredProcedure;
+                        cmd.Parameters.Add(new SqlParameter("@IdSolicitud", idSolicitud));
+                        List<OpinionViewModel> result = new List<OpinionViewModel>();
+                        await conn.OpenAsync();
+
+                        using (var reader = await cmd.ExecuteReaderAsync())
+                        {
+                            while (await reader.ReadAsync())
+                            {
+                                result.Add(_MapOpinion(reader));
+                            }
+                        }
+                        return result;
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+
+                throw;
+            }
+        }
         public async Task<EdoOpinionSelectViewModel> GetEdoOpinionById(int IdEdoOpinion)
         {
             try
