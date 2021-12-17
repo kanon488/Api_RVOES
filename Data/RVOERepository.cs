@@ -800,6 +800,85 @@ namespace API_RVOES.Data
                 }
             }
         }
+
+        public async Task<OpinionViewModel> GetInfoOpinionById(int idOpinion)
+        {
+            using (SqlConnection conn = new SqlConnection(_connectionString))
+            {
+                using (SqlCommand cmd = new SqlCommand("RVOE2021_GetInfoOpinionById", conn))
+                {
+                    cmd.CommandType = System.Data.CommandType.StoredProcedure;
+                    cmd.Parameters.Add(new SqlParameter("@IdOpinion", idOpinion));
+                    OpinionViewModel result = new OpinionViewModel();
+                    await conn.OpenAsync();
+
+                    using (var reader = await cmd.ExecuteReaderAsync())
+                    {
+                        while (await reader.ReadAsync())
+                        {
+                            result = _MapOpinion(reader);
+                        }
+                    }
+                    return result;
+                }
+            }
+        }
+
+        public async Task<string> GetOficioOpinionById(int idOpinion) 
+        {
+            using (SqlConnection conn = new SqlConnection(_connectionString))
+            {
+                using (SqlCommand cmd = new SqlCommand("RVOE2021_GetOficioOpinionById", conn))
+                {
+                    cmd.CommandType = System.Data.CommandType.StoredProcedure;
+                    cmd.Parameters.Add(new SqlParameter("@IdOpinion", idOpinion));
+                    string result = "";
+                    await conn.OpenAsync();
+
+                    using (var reader = await cmd.ExecuteReaderAsync())
+                    {
+                        while (await reader.ReadAsync())
+                        {
+                            result = reader["rutaOficioOpinion"].ToString();
+                        }
+                    }
+                    return result;
+                }
+            }
+        }
+
+        public async Task<string> InsertOficioRptaSemsys(int idOpinion,string sRutaDestinoArchivo)
+        {
+            try
+            {
+                using (SqlConnection conn = new SqlConnection(_connectionString))
+                {
+                    using (SqlCommand cmd = new SqlCommand("RVOE2021_InsertOficioRptaSemsys", conn))
+                    {
+                        cmd.CommandType = System.Data.CommandType.StoredProcedure;
+                        cmd.Parameters.Add(new SqlParameter("@IdOpinion", idOpinion));
+                        cmd.Parameters.Add(new SqlParameter("@RutaOficioSemsys", sRutaDestinoArchivo));
+                        //Add the output parameter to the command object
+                        SqlParameter outPutParameter = new SqlParameter();
+                        outPutParameter.ParameterName = "@output";
+                        outPutParameter.SqlDbType = System.Data.SqlDbType.Int;
+                        outPutParameter.Direction = System.Data.ParameterDirection.Output;
+                        cmd.Parameters.Add(outPutParameter);
+                        await conn.OpenAsync();
+
+                        await cmd.ExecuteNonQueryAsync();
+                        string sOutput = outPutParameter.Value.ToString();
+                        return sOutput;
+                    }
+                }
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
+
         public async Task<UsuarioViewModel> getUserByUsername(string sUsername)
         {
             try
@@ -1147,7 +1226,9 @@ namespace API_RVOES.Data
                 IdEdoOpinion = Int32.Parse(reader["IdEdoOpinion"].ToString()),
                 DescEdoOpinion = reader["EstatusOpinion"].ToString(),
                 FechaAsginacion = reader["FechaAsignacion"].ToString(),
-                FechaLimOpinion = reader["FechaLimOpinion"].ToString()
+                FechaLimOpinion = reader["FechaLimOpinion"].ToString(),
+                IndOficioOpinion = reader["IndOficioOpinion"].ToString(),
+                IndOficioSemsys = reader["IndOficioSemsys"].ToString()
             };
         }
         private SolicitudAsignadaViewModel _MapSolicitudesAsignadas(SqlDataReader reader)
