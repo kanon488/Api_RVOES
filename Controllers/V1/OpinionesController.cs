@@ -215,7 +215,5 @@ namespace API_RVOES.Controllers.V1
                 return StatusCode(500, ex.Message);
             }
         }
-
-
     }
 }

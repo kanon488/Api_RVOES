@@ -21,8 +21,9 @@ namespace API_RVOES.AppCode.Services
     public class EmailService : IEmailService
     {
         private readonly IConfiguration _config;
-        private IHostingEnvironment _env;
-        public EmailService(IConfiguration config, IHostingEnvironment env)
+        //private IHostingEnvironment _env;
+        private IWebHostEnvironment _env;
+        public EmailService(IConfiguration config, IWebHostEnvironment env)
         {
             _config = config;
             _env = env;

@@ -1,10 +1,8 @@
 ﻿using API_RVOES.AppCode.Generales;
-using API_RVOES.AppCode.Services;
 using API_RVOES.Data;
 using API_RVOES.Models.StoredProcedures.Usuarios;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.Extensions.Configuration;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -17,14 +15,10 @@ namespace API_RVOES.Controllers.V1
     public class UsuariosController : ControllerBase
     {
         private readonly RVOERepository _rvoerepository;
-        private readonly IConfiguration _configuration;
-        private readonly IEmailService _emailService;
 
-        public UsuariosController(RVOERepository rvoerepository, IConfiguration configuration, IEmailService emailService)
+        public UsuariosController(RVOERepository rvoerepository)
         {
             _rvoerepository = rvoerepository ?? throw new ArgumentNullException("No implementado");
-            _configuration = configuration;
-            _emailService = emailService;
         }
 
         /// <summary>
@@ -200,42 +194,6 @@ namespace API_RVOES.Controllers.V1
             catch (Exception ex)
             {
 
-                return StatusCode(500, ex.Message);
-            }
-            return Ok();
-        }
-
-        /// <summary>
-        /// Envia el correo con el usuairo de la contraseña al usuario.
-        /// </summary>
-        /// <param name="id"></param>
-        /// <returns></returns>
-        [HttpGet("[action]/{id}")]
-        public async Task<IActionResult> EnviarCorreoAcceso([FromRoute] int id)
-        {
-            try
-            {
-                if (id <= 0)
-                {
-                    return BadRequest();
-                }
-
-                var usuario = await _rvoerepository.GetUsuario(id);
-
-                if (usuario == null)
-                {
-                    return NotFound();
-                }
-                string sNombreCompleto = usuario.Nombre + " " + usuario.ApellidoPaterno + " " + usuario.ApellidoMaterno;
-                string sCuentaOrigen = _configuration["EmailData:Account"];
-                string sDestino = usuario.CorreoInstitucional;
-                string sSubject = _configuration["EmailData:SubjectNewUser"];
-                string sUrlRvoe = _configuration["UrlAccesoSistema"];
-                string sCuerpoMensaje = _emailService.getBodyNuevoUsuario(usuario.ClaveUsuario, usuario.Password, sUrlRvoe, sNombreCompleto);
-                _emailService.Send(sCuentaOrigen, sDestino, sSubject, sCuerpoMensaje);
-            }
-            catch (Exception ex)
-            {
                 return StatusCode(500, ex.Message);
             }
             return Ok();
